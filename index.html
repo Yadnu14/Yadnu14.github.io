@@ -4,874 +4,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090b10">
-<meta name="description" content="Yadnesh Kulkarni | Cloud, DevOps, Linux and Python projects.">
-<title>Yadnesh Kulkarni | Cloud & DevOps Engineer</title>
-
+<meta name="theme-color" content="#090b0a">
+<title>Yadnesh Kulkarni — Cloud & DevOps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-:root {
-  --bg:#090b10;
-  --surface:#10141d;
-  --surface2:#151b27;
-  --text:#f0f3fa;
-  --muted:#929caf;
-  --blue:#76a9ff;
-  --line:#252d3b;
-  --green:#9ce5c1;
-  --mono:'DM Mono',monospace;
-  --display:'Space Grotesk',sans-serif;
-  --body:'DM Sans',sans-serif;
-  --width:1160px;
-}
-
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; scroll-padding-top:90px; }
-body {
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--body);
-  line-height:1.7;
-  overflow-x:hidden;
-}
-a { color:inherit; text-decoration:none; }
-button,a { -webkit-tap-highlight-color:transparent; }
-::selection { background:var(--blue); color:#080b11; }
-
-.container {
-  width:min(var(--width), calc(100% - 48px));
-  margin:auto;
-}
-
-.noise {
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.025;
-  z-index:10;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-}
-
-header {
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(9,11,16,.88);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-nav {
-  height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo {
-  font-family:var(--display);
-  font-size:1.2rem;
-  font-weight:700;
-  letter-spacing:-1px;
-}
-.logo span { color:var(--blue); }
-
-.nav-links {
-  display:flex;
-  align-items:center;
-  gap:30px;
-}
-.nav-links a {
-  color:var(--muted);
-  font-size:.83rem;
-  transition:.2s;
-}
-.nav-links a:hover { color:var(--blue); }
-
-.nav-cta {
-  border:1px solid var(--line);
-  border-radius:5px;
-  padding:9px 15px;
-  color:var(--text)!important;
-}
-
-.hero {
-  min-height:650px;
-  display:flex;
-  align-items:center;
-  position:relative;
-  padding:100px 0 110px;
-}
-
-.hero::after {
-  content:"";
-  position:absolute;
-  width:540px;
-  height:540px;
-  border-radius:50%;
-  right:-130px;
-  top:30px;
-  background:radial-gradient(circle,rgba(78,132,230,.13),transparent 68%);
-  pointer-events:none;
-}
-
-.hero-content { position:relative; z-index:1; max-width:850px; }
-
-.status {
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  color:var(--green);
-  font-family:var(--mono);
-  font-size:.72rem;
-  letter-spacing:.5px;
-  border:1px solid rgba(156,229,193,.2);
-  background:rgba(156,229,193,.045);
-  padding:8px 12px;
-  border-radius:4px;
-  margin-bottom:35px;
-}
-
-.dot {
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 12px var(--green);
-}
-
-.kicker {
-  color:var(--blue);
-  font-family:var(--mono);
-  font-size:.77rem;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:15px;
-}
-
-h1 {
-  font-family:var(--display);
-  font-size:clamp(3.4rem,8vw,6.8rem);
-  line-height:1.02;
-  letter-spacing:-5px;
-  font-weight:600;
-  max-width:900px;
-}
-
-h1 .accent { color:var(--blue); }
-
-.hero-description {
-  max-width:620px;
-  color:var(--muted);
-  font-size:1.08rem;
-  margin-top:26px;
-  line-height:1.9;
-}
-
-.hero-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:35px;
-}
-
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:13px 19px;
-  border-radius:5px;
-  font-size:.86rem;
-  font-weight:700;
-  border:1px solid var(--line);
-  transition:transform .2s,background .2s,border .2s;
-}
-.btn:hover { transform:translateY(-3px); }
-.btn-primary {
-  color:#08101d;
-  background:var(--blue);
-  border-color:var(--blue);
-}
-.btn-primary:hover { background:#a0c3ff; }
-.btn-outline { background:rgba(255,255,255,.02); }
-.btn-outline:hover { border-color:var(--blue); }
-
-.hero-meta {
-  display:flex;
-  flex-wrap:wrap;
-  gap:35px;
-  margin-top:65px;
-  padding-top:25px;
-  border-top:1px solid var(--line);
-}
-.meta-item strong {
-  display:block;
-  font-family:var(--display);
-  font-size:1.05rem;
-}
-.meta-item span {
-  color:var(--muted);
-  font-size:.76rem;
-}
-
-.section { padding:105px 0; border-top:1px solid rgba(255,255,255,.06); }
-
-.section-head {
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:30px;
-  margin-bottom:45px;
-}
-
-.section-index {
-  color:var(--blue);
-  font-family:var(--mono);
-  font-size:.72rem;
-  letter-spacing:1px;
-  margin-bottom:12px;
-}
-
-h2 {
-  font-family:var(--display);
-  font-size:clamp(2.1rem,5vw,3.3rem);
-  letter-spacing:-2px;
-  line-height:1.15;
-}
-
-.section-sub {
-  color:var(--muted);
-  max-width:420px;
-  font-size:.92rem;
-}
-
-.about-grid {
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:55px;
-}
-
-.about-main {
-  color:#bdc6d6;
-  font-size:1.04rem;
-  line-height:2;
-}
-.about-main p+p { margin-top:18px; }
-.about-main strong { color:var(--text); }
-
-.about-aside {
-  border:1px solid var(--line);
-  background:var(--surface);
-  padding:27px;
-  border-radius:7px;
-}
-.aside-title {
-  color:var(--blue);
-  font-family:var(--mono);
-  font-size:.7rem;
-  letter-spacing:1px;
-  margin-bottom:22px;
-}
-.focus-row {
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:13px 0;
-  border-bottom:1px solid var(--line);
-  font-size:.87rem;
-}
-.focus-row:last-child { border:0; }
-.focus-row span { color:var(--muted); }
-
-.skills-grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-.skill-card {
-  padding:25px;
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:7px;
-  transition:.25s;
-}
-.skill-card:hover {
-  border-color:#50688d;
-  transform:translateY(-3px);
-}
-.skill-card h3 {
-  font-family:var(--display);
-  font-size:1.08rem;
-  margin-bottom:15px;
-}
-.skill-card p {
-  color:var(--muted);
-  font-size:.88rem;
-  line-height:1.9;
-}
-.skill-icon {
-  color:var(--blue);
-  font-family:var(--mono);
-  font-size:.72rem;
-  margin-bottom:15px;
-}
-
-.projects-grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:17px;
-}
-
-.project {
-  position:relative;
-  overflow:hidden;
-  padding:29px;
-  background:linear-gradient(145deg,#121925,#0e121a);
-  border:1px solid var(--line);
-  border-radius:7px;
-  transition:border-color .25s,transform .25s;
-}
-.project:hover {
-  border-color:#5878aa;
-  transform:translateY(-4px);
-}
-.project.featured { grid-column:span 2; }
-.project-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:27px;
-}
-.project-number {
-  color:var(--blue);
-  font-family:var(--mono);
-  font-size:.75rem;
-}
-.project-type {
-  color:var(--muted);
-  font-family:var(--mono);
-  font-size:.66rem;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-.project h3 {
-  font-family:var(--display);
-  font-size:1.55rem;
-  letter-spacing:-.7px;
-  margin-bottom:12px;
-}
-.project p {
-  color:var(--muted);
-  font-size:.9rem;
-  line-height:1.9;
-  max-width:690px;
-}
-.tags {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:22px 0;
-}
-.tag {
-  border:1px solid #29364a;
-  color:#b7c8e3;
-  background:#151f2e;
-  border-radius:3px;
-  padding:5px 9px;
-  font-family:var(--mono);
-  font-size:.67rem;
-}
-.project-link {
-  display:inline-flex;
-  gap:9px;
-  align-items:center;
-  color:var(--blue);
-  font-size:.83rem;
-  font-weight:700;
-}
-.project-link:hover { color:white; }
-
-.cert-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:13px;
-}
-.cert {
-  padding:23px;
-  border:1px solid var(--line);
-  background:var(--surface);
-  border-radius:6px;
-  min-height:125px;
-}
-.cert small {
-  display:block;
-  color:var(--blue);
-  font-family:var(--mono);
-  font-size:.68rem;
-  margin-bottom:12px;
-}
-.cert strong {
-  display:block;
-  font-size:.91rem;
-  line-height:1.5;
-}
-.cert span {
-  display:block;
-  color:var(--muted);
-  font-size:.78rem;
-  margin-top:6px;
-}
-
-.education-card {
-  padding:32px;
-  border:1px solid var(--line);
-  background:linear-gradient(120deg,#121925,#0e121a);
-  border-radius:7px;
-  display:flex;
-  justify-content:space-between;
-  gap:25px;
-  align-items:start;
-}
-.education-card h3 {
-  font-family:var(--display);
-  font-size:1.45rem;
-  margin-bottom:8px;
-}
-.education-card p { color:var(--muted); font-size:.9rem; }
-.education-date {
-  color:var(--blue);
-  font-family:var(--mono);
-  font-size:.75rem;
-  white-space:nowrap;
-}
-
-.contact-box {
-  padding:65px;
-  background:
-    radial-gradient(ellipse at top right,rgba(84,139,240,.18),transparent 55%),
-    #111722;
-  border:1px solid #2b3b54;
-  border-radius:8px;
-}
-.contact-box h2 { max-width:700px; }
-.contact-box > p {
-  max-width:550px;
-  color:var(--muted);
-  margin-top:18px;
-}
-.contact-links {
-  display:flex;
-  flex-wrap:wrap;
-  gap:23px;
-  margin-top:35px;
-}
-.contact-links a {
-  color:var(--blue);
-  font-size:.88rem;
-  font-weight:700;
-}
-.contact-links a:hover { color:white; }
-
-footer {
-  border-top:1px solid var(--line);
-  padding:27px 0;
-  color:var(--muted);
-  font-size:.78rem;
-}
-.footer-inner {
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.footer-brand {
-  color:var(--text);
-  font-family:var(--display);
-  font-weight:700;
-}
-
-.reveal {
-  opacity:0;
-  transform:translateY(18px);
-  transition:opacity .65s ease,transform .65s ease;
-}
-.reveal.visible { opacity:1; transform:translateY(0); }
-
-@media(max-width:800px) {
-  .nav-links { gap:15px; }
-  .nav-links a:not(.nav-cta) { display:none; }
-  .hero { min-height:590px; }
-  .about-grid { grid-template-columns:1fr; gap:25px; }
-  .cert-grid { grid-template-columns:repeat(2,1fr); }
-  .contact-box { padding:38px 25px; }
-}
-
-@media(max-width:600px) {
-  .container { width:calc(100% - 34px); }
-  nav { height:68px; }
-  h1 { letter-spacing:-2.5px; }
-  .hero { padding:75px 0; min-height:auto; }
-  .hero-meta { gap:22px; margin-top:45px; }
-  .section { padding:75px 0; }
-  .section-head { display:block; }
-  .section-sub { margin-top:15px; }
-  .skills-grid,.projects-grid { grid-template-columns:1fr; }
-  .project.featured { grid-column:auto; }
-  .cert-grid { grid-template-columns:1fr; }
-  .education-card { display:block; }
-  .education-date { display:block; margin-bottom:17px; }
-  .contact-box { padding:30px 22px; }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    scroll-behavior:auto!important;
-    transition:none!important;
-  }
-  .reveal { opacity:1; transform:none; }
-}
+:root{--bg:#090b0a;--panel:#111512;--line:#28312b;--text:#edf2eb;--muted:#89958b;--lime:#c7f36b;--mint:#8dd9b0;--mono:"DM Mono",monospace;--sans:Manrope,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 75% 12%,#263d2c55,transparent 35%),radial-gradient(ellipse at 5% 60%,#273d2c22,transparent 40%)}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(1180px,calc(100% - 48px));margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{font-weight:800;letter-spacing:-1px}.brand span{color:var(--lime)}
+.navlinks{display:flex;gap:28px;color:var(--muted);font-size:12px;font-family:var(--mono)}
+.navlinks a:hover{color:var(--lime)}
+.navright{display:flex;align-items:center;gap:15px}
+.status{font:10px var(--mono);color:var(--mint);display:flex;align-items:center;gap:8px}
+.dot{width:7px;height:7px;background:var(--mint);border-radius:50%;box-shadow:0 0 12px var(--mint)}
+.cmd{background:#171d18;border:1px solid var(--line);color:var(--muted);padding:8px 11px;border-radius:7px;font:10px var(--mono);cursor:pointer}
+.hero{min-height:690px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px;padding:80px 0 90px}
+.eyebrow{font:11px var(--mono);letter-spacing:2px;color:var(--lime);text-transform:uppercase}
+h1{font-size:clamp(58px,8.4vw,112px);line-height:.94;letter-spacing:-.085em;margin:24px 0 26px;font-weight:700}
+h1 em{font-style:normal;color:var(--lime)}
+.intro{max-width:510px;color:#aab4aa;line-height:1.9;font-size:15px}
+.actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{padding:14px 19px;border-radius:5px;font:11px var(--mono);border:1px solid var(--line);transition:.25s;display:inline-flex;gap:12px;align-items:center}
+.btn.primary{background:var(--lime);color:#11170c;border-color:var(--lime);font-weight:500}
+.btn:hover{transform:translateY(-3px);border-color:var(--lime)}
+.hero-meta{display:flex;gap:26px;margin-top:45px;color:var(--muted);font:10px var(--mono);text-transform:uppercase}
+.visual{height:470px;position:relative;display:grid;place-items:center}
+.orbit{position:absolute;border:1px solid #50614c66;border-radius:50%;transform:rotate(-25deg)}
+.orbit.one{width:370px;height:170px}.orbit.two{width:430px;height:230px;transform:rotate(55deg)}.orbit.three{width:310px;height:310px}
+.core{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#d6ff9d,#749b4d 35%,#18251a 72%);box-shadow:0 0 90px #a8e66b33, inset -15px -20px 40px #080c08;animation:float 6s ease-in-out infinite}
+.core span{font:11px var(--mono);color:#10190e;letter-spacing:2px}
+.node{position:absolute;width:10px;height:10px;background:var(--lime);border-radius:50%;box-shadow:0 0 20px var(--lime)}
+.n1{top:17%;left:28%}.n2{right:9%;top:43%}.n3{bottom:13%;left:39%}
+.visual-label{position:absolute;font:10px var(--mono);color:var(--muted)}
+.vl1{top:8%;right:5%}.vl2{bottom:8%;right:2%}.vl3{top:52%;left:0}
+@keyframes float{50%{transform:translateY(-12px) scale(1.03)}}
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:17px 0;color:#738074;font:10px var(--mono);letter-spacing:2px;white-space:nowrap}
+.ticker div{width:max-content;animation:marquee 28s linear infinite}
+@keyframes marquee{to{transform:translateX(-50%)}}
+section{padding:105px 0;border-bottom:1px solid var(--line)}
+.section-top{display:flex;justify-content:space-between;align-items:end;margin-bottom:45px}
+.kicker{font:10px var(--mono);color:var(--lime);letter-spacing:2px}
+h2{font-size:clamp(38px,6vw,66px);letter-spacing:-.07em;margin:12px 0 0}
+.section-note{color:var(--muted);font:11px var(--mono)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.about-grid p{color:#aab4aa;line-height:1.9;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{border:1px solid var(--line);background:#101511;padding:22px}
+.stat strong{font-size:30px;letter-spacing:-2px;color:var(--lime);display:block}
+.stat span{font:10px var(--mono);color:var(--muted);display:block;margin-top:8px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filter{border:1px solid var(--line);background:transparent;color:var(--muted);padding:9px 14px;font:10px var(--mono);cursor:pointer;border-radius:3px}
+.filter.active,.filter:hover{color:var(--bg);background:var(--lime);border-color:var(--lime)}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.project{background:var(--panel);border:1px solid var(--line);padding:27px;min-height:255px;position:relative;transition:.3s;display:flex;flex-direction:column}
+.project:hover{transform:translateY(-5px);border-color:#809e62}
+.project[hidden]{display:none}
+.project-no{font:10px var(--mono);color:var(--lime)}
+.project h3{font-size:25px;letter-spacing:-1px;margin:25px 0 10px}
+.project p{font-size:13px;color:var(--muted);line-height:1.7;max-width:470px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:20px}
+.tags span{font:9px var(--mono);color:#b4c0b2;border:1px solid var(--line);padding:6px 8px}
+.project a{position:absolute;right:24px;top:24px;color:var(--lime);font-size:19px}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.skill{padding:22px;border:1px solid var(--line);background:#101511}
+.skill h3{font:11px var(--mono);color:var(--lime);margin:0 0 15px}
+.skill p{font-size:12px;line-height:2;color:#aab4aa;margin:0}
+.credentials{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.credential{padding:20px;border:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}
+.credential strong{font-size:13px}.credential span{font:10px var(--mono);color:var(--muted);text-align:right}
+.contact{display:flex;align-items:end;justify-content:space-between;gap:30px}
+.contact h2{max-width:650px}
+footer{padding:25px 0;display:flex;justify-content:space-between;color:var(--muted);font:10px var(--mono)}
+.palette{position:fixed;inset:0;background:#000b;z-index:10;display:none;place-items:start center;padding-top:18vh}
+.palette.open{display:grid}
+.palette-box{width:min(520px,calc(100% - 30px));background:#121713;border:1px solid #53624d;padding:15px;box-shadow:0 30px 100px #000}
+.palette input{width:100%;background:#090d0a;border:1px solid var(--line);padding:15px;color:white;font:13px var(--mono);outline:none}
+.palette-list{display:grid;margin-top:10px}
+.palette-list button{text-align:left;background:transparent;border:0;color:#c8d1c7;padding:12px;cursor:pointer;font:12px var(--mono)}
+.palette-list button:hover{background:#273127;color:var(--lime)}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:65px 0}.visual{height:350px}.about-grid{grid-template-columns:1fr;gap:25px}.skills-grid{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.contact{display:block}.contact .actions{margin-top:25px}}
+@media(max-width:520px){.wrap{width:calc(100% - 32px)}.projects,.credentials{grid-template-columns:1fr}.hero-meta{gap:12px;flex-wrap:wrap}.visual{transform:scale(.85);margin:-20px 0}.section-top{display:block}.section-note{display:block;margin-top:12px}.stats{gap:6px}.stat{padding:14px}.stat strong{font-size:23px}footer{gap:15px;flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
-
 <body>
-<div class="noise"></div>
+<div class="wrap">
+<nav>
+  <a class="brand" href="#">YK<span>.</span></a>
+  <div class="navlinks"><a href="#about">ABOUT</a><a href="#work">WORK</a><a href="#skills">STACK</a><a href="#contact">CONTACT</a></div>
+  <div class="navright"><span class="status"><i class="dot"></i> OPEN TO OPPORTUNITIES</span><button class="cmd" id="openPalette">⌘ K</button></div>
+</nav>
 
-<header>
-  <nav class="container">
-    <a class="logo" href="#home">YK<span>.</span></a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Education</a>
-      <a href="#contact">Contact</a>
-      <a class="nav-cta" href="Resume_Yadnesh.pdf" target="_blank" rel="noopener">Resume ↗</a>
+<header class="hero">
+  <div>
+    <div class="eyebrow">IT ENGINEERING · CLOUD · DEVOPS</div>
+    <h1>Building<br>what's <em>next.</em></h1>
+    <p class="intro">I'm Yadnesh Kulkarni. An IT engineering student exploring cloud infrastructure, automation and the systems that keep software running.</p>
+    <div class="actions">
+      <a class="btn primary" href="#work">EXPLORE MY WORK ↗</a>
+      <a class="btn" href="Resume_Yadnesh.pdf" target="_blank">VIEW RESUME ↗</a>
     </div>
-  </nav>
+    <div class="hero-meta"><span>BASED IN PUNE, INDIA</span><span>BUILDING IN PUBLIC</span></div>
+  </div>
+  <div class="visual" aria-label="Abstract orbital system illustration">
+    <div class="orbit one"></div><div class="orbit two"></div><div class="orbit three"></div>
+    <div class="core"><span>YK / 001</span></div>
+    <i class="node n1"></i><i class="node n2"></i><i class="node n3"></i>
+    <span class="visual-label vl1">SYSTEMS / CLOUD</span>
+    <span class="visual-label vl2">LEARN → BUILD → DEPLOY</span>
+    <span class="visual-label vl3">PUNE / IN</span>
+  </div>
 </header>
+</div>
 
-<main>
-<section class="hero container" id="home">
-  <div class="hero-content">
-    <div class="status"><span class="dot"></span> OPEN TO LEARNING & INTERNSHIP OPPORTUNITIES</div>
-    <div class="kicker">Information Technology · Pune, India</div>
-    <h1>Building systems.<br>Solving problems.<br><span class="accent">Learning by doing.</span></h1>
-    <p class="hero-description">
-      I'm Yadnesh Kulkarni, an Information Technology engineering student
-      focused on Cloud Computing and DevOps. I build practical projects
-      around Linux, Python, Docker, troubleshooting, automation and
-      local-first applications.
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#projects">Explore my work <span>↗</span></a>
-      <a class="btn btn-outline" href="Resume_Yadnesh.pdf" target="_blank" rel="noopener">Download resume ↓</a>
-      <a class="btn btn-outline" href="https://github.com/Yadnu14" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
-    <div class="hero-meta">
-      <div class="meta-item"><strong>05</strong><span>Personal projects</span></div>
-      <div class="meta-item"><strong>20+</strong><span>Google Cloud badges</span></div>
-      <div class="meta-item"><strong>100/100</strong><span>AWS Educate assessment</span></div>
+<div class="ticker"><div>LINUX　✳　PYTHON　✳　DOCKER　✳　GIT　✳　CLOUD COMPUTING　✳　AUTOMATION　✳　LINUX　✳　PYTHON　✳　DOCKER　✳　GIT　✳　CLOUD COMPUTING　✳　AUTOMATION　✳　</div></div>
+
+<main class="wrap">
+<section id="about">
+  <div class="section-top"><div><div class="kicker">01 / THE PERSON</div><h2>Curious by design.</h2></div><span class="section-note">A LITTLE ABOUT ME</span></div>
+  <div class="about-grid">
+    <p>I'm pursuing Information Technology engineering at Trinity Academy of Engineering, Pune. My interests sit at the intersection of cloud computing, Linux, automation and DevOps practices.<br><br>I learn by building: small tools, local-first applications and practical experiments that turn concepts into something usable. I'm focused on strengthening the fundamentals and developing the habits of a reliable engineer.</p>
+    <div class="stats">
+      <div class="stat"><strong>05</strong><span>PROJECTS</span></div>
+      <div class="stat"><strong>20+</strong><span>GCP SKILL BADGES</span></div>
+      <div class="stat"><strong>100%</strong><span>AWS CLOUD 101 ASSESSMENT</span></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="about">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-index">01 / ABOUT</div>
-        <h2>A little about me.</h2>
-      </div>
-      <p class="section-sub">An engineering student building a practical foundation in cloud infrastructure and software delivery.</p>
-    </div>
-
-    <div class="about-grid reveal">
-      <div class="about-main">
-        <p>
-          I'm pursuing a <strong>Bachelor of Engineering in Information Technology</strong>
-          at Trinity Academy of Engineering, Pune, affiliated with SPPU.
-          My current direction is Cloud and DevOps, with an interest in
-          understanding how systems work, how they fail, and how to make
-          them more reliable.
-        </p>
-        <p>
-          My learning is project-driven. I've built tools for system resource
-          monitoring, Linux and Docker incident investigation, file organization,
-          and local AI-assisted workflows.
-        </p>
-        <p>
-          I value clear documentation, version control, testing, practical
-          debugging, and building software with predictable behavior.
-        </p>
-      </div>
-
-      <aside class="about-aside">
-        <div class="aside-title">CURRENT FOCUS</div>
-        <div class="focus-row"><span>Primary direction</span><strong>Cloud & DevOps</strong></div>
-        <div class="focus-row"><span>Systems</span><strong>Linux / Docker</strong></div>
-        <div class="focus-row"><span>Programming</span><strong>Python</strong></div>
-        <div class="focus-row"><span>Version control</span><strong>Git / GitHub</strong></div>
-        <div class="focus-row"><span>Location</span><strong>Pune, India</strong></div>
-      </aside>
-    </div>
+<section id="work">
+  <div class="section-top"><div><div class="kicker">02 / SELECTED BUILDS</div><h2>Made, not imagined.</h2></div><span class="section-note">PERSONAL PROJECTS</span></div>
+  <div class="filters">
+    <button class="filter active" data-filter="all">ALL</button>
+    <button class="filter" data-filter="devops">DEVOPS</button>
+    <button class="filter" data-filter="ai">LOCAL AI</button>
+    <button class="filter" data-filter="python">PYTHON</button>
+  </div>
+  <div class="projects">
+    <article class="project" data-category="devops python"><span class="project-no">PROJECT / 001</span><a href="https://github.com/Yadnu14/devops-incident-troubleshooter" target="_blank" aria-label="Open DevOps Incident Troubleshooter">↗</a><h3>DevOps Incident Troubleshooter</h3><p>A troubleshooting-focused resource for common Linux and Docker incidents, with diagnostic steps, likely causes and recovery verification.</p><div class="tags"><span>DEVOPS</span><span>LINUX</span><span>DOCKER</span></div></article>
+    <article class="project" data-category="python"><span class="project-no">PROJECT / 002</span><a href="https://github.com/Yadnu14/python-system-monitor" target="_blank" aria-label="Open Python System Monitor">↗</a><h3>Python System Monitor</h3><p>A lightweight terminal utility that tracks CPU, memory and disk usage at regular intervals, with logging support.</p><div class="tags"><span>PYTHON</span><span>PSUTIL</span><span>DOCKER</span></div></article>
+    <article class="project" data-category="ai python"><span class="project-no">PROJECT / 003</span><a href="https://github.com/Yadnu14/LazySort-AI" target="_blank" aria-label="Open LazySort AI">↗</a><h3>LazySort AI</h3><p>A local-first file organization assistant with preview-before-apply actions, explicit user control and rule-based fallback behavior.</p><div class="tags"><span>FLASK</span><span>OLLAMA</span><span>GEMMA</span></div></article>
+    <article class="project" data-category="ai python"><span class="project-no">PROJECT / 004</span><a href="https://github.com/Yadnu14/FieldNote-AI" target="_blank" aria-label="Open FieldNote AI">↗</a><h3>FieldNote AI</h3><p>A local-first outdoor reflection workflow designed to encourage screen breaks, observation and personal journaling.</p><div class="tags"><span>FLASK</span><span>LOCAL AI</span><span>PRIVACY</span></div></article>
+    <article class="project" data-category="ai python"><span class="project-no">PROJECT / 005</span><a href="https://github.com/Yadnu14/GigCraft-AI" target="_blank" aria-label="Open GigCraft AI">↗</a><h3>GigCraft AI</h3><p>A Flask application that turns freelance client briefs into structured project plans with local language-model integration.</p><div class="tags"><span>FLASK</span><span>AI</span><span>PYTHON</span></div></article>
   </div>
 </section>
 
-<section class="section" id="skills">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-index">02 / TOOLKIT</div>
-        <h2>Technical toolkit.</h2>
-      </div>
-      <p class="section-sub">Technologies and foundations explored through coursework, online learning, and hands-on projects.</p>
-    </div>
-
-    <div class="skills-grid reveal">
-      <article class="skill-card">
-        <div class="skill-icon">01 — INFRASTRUCTURE</div>
-        <h3>Cloud Platforms</h3>
-        <p>Google Cloud Skills Boost labs and badges, AWS Educate Cloud 101, IBM Cloud Computing Fundamentals.</p>
-      </article>
-      <article class="skill-card">
-        <div class="skill-icon">02 — OPERATIONS</div>
-        <h3>DevOps & Tools</h3>
-        <p>Docker, Git, GitHub, YAML, CI/CD fundamentals.</p>
-      </article>
-      <article class="skill-card">
-        <div class="skill-icon">03 — SYSTEMS</div>
-        <h3>Linux & Networking</h3>
-        <p>Linux CLI, process and resource inspection, file permissions, log review, basic troubleshooting, TCP/IP, DNS, HTTP/HTTPS.</p>
-      </article>
-      <article class="skill-card">
-        <div class="skill-icon">04 — DEVELOPMENT</div>
-        <h3>Programming</h3>
-        <p>Python, JavaScript, C, C++, Java, Bash fundamentals, Flask, HTML, CSS and unit testing.</p>
-      </article>
-      <article class="skill-card">
-        <div class="skill-icon">05 — EXPERIMENTATION</div>
-        <h3>Local AI Development</h3>
-        <p>Ollama, Gemma 3 4B, local language-model integration and rule-based fallbacks.</p>
-      </article>
-      <article class="skill-card">
-        <div class="skill-icon">06 — PRACTICES</div>
-        <h3>Engineering Practices</h3>
-        <p>Version control, project documentation, testing, preview-before-apply workflows and controlled file operations.</p>
-      </article>
-    </div>
+<section id="skills">
+  <div class="section-top"><div><div class="kicker">03 / TOOLKIT</div><h2>Things I work with.</h2></div><span class="section-note">CURRENT LEARNING STACK</span></div>
+  <div class="skills-grid">
+    <div class="skill"><h3>01 / CLOUD</h3><p>Google Cloud<br>AWS fundamentals<br>IBM Cloud fundamentals</p></div>
+    <div class="skill"><h3>02 / DEVOPS</h3><p>Linux CLI<br>Docker<br>Git & GitHub<br>CI/CD fundamentals</p></div>
+    <div class="skill"><h3>03 / NETWORKING</h3><p>TCP/IP<br>DNS<br>HTTP / HTTPS<br>Connectivity basics</p></div>
+    <div class="skill"><h3>04 / DEVELOPMENT</h3><p>Python<br>JavaScript<br>Flask<br>C / C++ / Java</p></div>
   </div>
 </section>
 
-<section class="section" id="projects">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-index">03 / SELECTED WORK</div>
-        <h2>Things I've built.</h2>
-      </div>
-      <p class="section-sub">A selection of personal projects exploring systems, automation, troubleshooting and local-first software.</p>
-    </div>
-
-    <div class="projects-grid">
-      <article class="project featured reveal">
-        <div class="project-top">
-          <span class="project-number">PROJECT / 01</span>
-          <span class="project-type">DEVOPS · TROUBLESHOOTING</span>
-        </div>
-        <h3>DevOps Incident Troubleshooter</h3>
-        <p>
-          A troubleshooting-focused project for investigating common Linux
-          and Docker incidents. It structures diagnostic steps, potential
-          causes, and recovery verification to make investigations more systematic.
-        </p>
-        <div class="tags">
-          <span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Troubleshooting</span>
-        </div>
-        <a class="project-link" href="https://github.com/Yadnu14/devops-incident-troubleshooter" target="_blank" rel="noopener">Explore repository ↗</a>
-      </article>
-
-      <article class="project reveal">
-        <div class="project-top">
-          <span class="project-number">PROJECT / 02</span>
-          <span class="project-type">PYTHON · MONITORING</span>
-        </div>
-        <h3>Python System Monitor</h3>
-        <p>
-          A Python utility that periodically monitors CPU, memory and disk
-          usage using psutil, with readable terminal output and logging support.
-          Includes Docker packaging files.
-        </p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">psutil</span><span class="tag">Colorama</span><span class="tag">Docker</span>
-        </div>
-        <a class="project-link" href="https://github.com/Yadnu14/python-system-monitor" target="_blank" rel="noopener">Explore repository ↗</a>
-      </article>
-
-      <article class="project reveal">
-        <div class="project-top">
-          <span class="project-number">PROJECT / 03</span>
-          <span class="project-type">LOCAL AI · AUTOMATION</span>
-        </div>
-        <h3>LazySort AI</h3>
-        <p>
-          A local-first file organizer built with Flask and Ollama/Gemma,
-          with rule-based fallback, editable previews and explicit apply.
-          Safeguards prevent recursive scanning, deletion and overwriting.
-        </p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Ollama</span><span class="tag">Unit testing</span>
-        </div>
-        <a class="project-link" href="https://github.com/Yadnu14/LazySort-AI" target="_blank" rel="noopener">Explore repository ↗</a>
-      </article>
-
-      <article class="project reveal">
-        <div class="project-top">
-          <span class="project-number">PROJECT / 04</span>
-          <span class="project-type">LOCAL AI · WEB APP</span>
-        </div>
-        <h3>FieldNote AI</h3>
-        <p>
-          A local-first Flask application built around outdoor micro-adventures
-          and journaling, with a locally hosted language model supporting
-          the application workflow.
-        </p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Ollama</span>
-        </div>
-        <a class="project-link" href="https://github.com/Yadnu14/FieldNote-AI" target="_blank" rel="noopener">Explore repository ↗</a>
-      </article>
-
-      <article class="project reveal">
-        <div class="project-top">
-          <span class="project-number">PROJECT / 05</span>
-          <span class="project-type">LOCAL AI · PRODUCTIVITY</span>
-        </div>
-        <h3>GigCraft AI</h3>
-        <p>
-          A Flask application that converts freelance client briefs into
-          structured project plans, exploring local language-model integration
-          for actionable outputs.
-        </p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Ollama</span>
-        </div>
-        <a class="project-link" href="https://github.com/Yadnu14/GigCraft-AI" target="_blank" rel="noopener">Explore repository ↗</a>
-      </article>
-    </div>
+<section id="credentials">
+  <div class="section-top"><div><div class="kicker">04 / LEARNING LOG</div><h2>Credentials.</h2></div></div>
+  <div class="credentials">
+    <div class="credential"><strong>Google Cloud Skills Boost</strong><span>20+ skill badges</span></div>
+    <div class="credential"><strong>AWS Educate Cloud 101</strong><span>Assessment: 100/100</span></div>
+    <div class="credential"><strong>IBM Cloud Computing Fundamentals</strong><span>IBM</span></div>
+    <div class="credential"><strong>Trust and Security with Google Cloud</strong><span>Simplilearn</span></div>
+    <div class="credential"><strong>AI for Beginners</strong><span>HP LIFE</span></div>
+    <div class="credential"><strong>Cybersecurity Awareness</strong><span>HP LIFE</span></div>
   </div>
 </section>
 
-<section class="section" id="certifications">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-index">04 / LEARNING</div>
-        <h2>Certifications & badges.</h2>
-      </div>
-      <p class="section-sub">A growing collection of cloud, security, and technology learning milestones.</p>
-    </div>
-
-    <div class="cert-grid reveal">
-      <article class="cert">
-        <small>GOOGLE CLOUD</small>
-        <strong>Google Cloud Skills Boost</strong>
-        <span>20+ skill badges</span>
-      </article>
-      <article class="cert">
-        <small>AMAZON WEB SERVICES</small>
-        <strong>AWS Educate Cloud 101</strong>
-        <span>Final assessment: 100/100</span>
-      </article>
-      <article class="cert">
-        <small>IBM</small>
-        <strong>Cloud Computing Fundamentals</strong>
-        <span>IBM credential</span>
-      </article>
-      <article class="cert">
-        <small>SIMPLILEARN</small>
-        <strong>Trust and Security with Google Cloud</strong>
-        <span>Cloud security learning</span>
-      </article>
-      <article class="cert">
-        <small>HP LIFE</small>
-        <strong>AI for Beginners</strong>
-        <span>AI foundations</span>
-      </article>
-      <article class="cert">
-        <small>HP LIFE</small>
-        <strong>Cybersecurity Awareness</strong>
-        <span>Cybersecurity foundations</span>
-      </article>
-    </div>
+<section id="contact">
+  <div class="contact">
+    <div><div class="kicker">05 / NEXT CONNECTION</div><h2>Let's build something that matters.</h2><p class="intro">Interested in cloud, DevOps, infrastructure or meaningful engineering projects? Let's connect.</p></div>
+    <div class="actions"><a class="btn primary" href="mailto:kulkarni.yadnesh2006@gmail.com">EMAIL ME ↗</a><a class="btn" href="https://www.linkedin.com/in/kulkarni-yadnesh" target="_blank">LINKEDIN ↗</a><a class="btn" href="https://github.com/Yadnu14" target="_blank">GITHUB ↗</a></div>
   </div>
 </section>
-
-<section class="section" id="experience">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-index">05 / EDUCATION</div>
-        <h2>Academic background.</h2>
-      </div>
-    </div>
-    <article class="education-card reveal">
-      <div>
-        <h3>Bachelor of Engineering</h3>
-        <p>Information Technology</p>
-        <p>Trinity Academy of Engineering, Pune</p>
-        <p>Savitribai Phule Pune University (SPPU)</p>
-        <p style="margin-top:17px">Relevant coursework: Computer Networks, Operating Systems, Data Structures and Object-Oriented Programming.</p>
-      </div>
-      <div class="education-date">2024 — PRESENT</div>
-    </article>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <div class="container">
-    <div class="contact-box reveal">
-      <div class="section-index">06 / GET IN TOUCH</div>
-      <h2>Let's build something<br><span style="color:var(--blue)">meaningful.</span></h2>
-      <p>
-        Interested in Cloud and DevOps internship opportunities, practical
-        engineering challenges, and learning from real-world systems.
-        Feel free to connect.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:kulkarni.yadnesh2006@gmail.com">Email ↗</a>
-        <a href="https://www.linkedin.com/in/kulkarni-yadnesh" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="https://github.com/Yadnu14" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="Resume_Yadnesh.pdf" target="_blank" rel="noopener">Resume PDF ↗</a>
-      </div>
-      <p style="margin-top:28px;font-size:.82rem">Pune, Maharashtra, India · +91 8262932879</p>
-    </div>
-  </div>
-</section>
+<footer><span>© 2026 YADNESH KULKARNI</span><span>DESIGNED TO KEEP EVOLVING.</span><a href="#">BACK TO TOP ↑</a></footer>
 </main>
 
-<footer>
-  <div class="container footer-inner">
-    <span class="footer-brand">YADNESH KULKARNI.</span>
-    <span>Designed & built with HTML, CSS and JavaScript.</span>
-    <span>© <span id="year"></span></span>
+<div class="palette" id="palette">
+  <div class="palette-box">
+    <input id="paletteInput" placeholder="Type a destination..." autocomplete="off">
+    <div class="palette-list" id="paletteList">
+      <button data-go="#about">About me ↗</button><button data-go="#work">Selected projects ↗</button><button data-go="#skills">Technical toolkit ↗</button><button data-go="#credentials">Certifications ↗</button><button data-go="#contact">Contact ↗</button>
+      <button data-go="https://github.com/Yadnu14">GitHub ↗</button><button data-go="https://www.linkedin.com/in/kulkarni-yadnesh">LinkedIn ↗</button>
+    </div>
   </div>
-</footer>
-
+</div>
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+const filters=document.querySelectorAll(".filter");
+const projects=document.querySelectorAll(".project");
+filters.forEach(button=>button.addEventListener("click",()=>{
+  filters.forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  const f=button.dataset.filter;
+  projects.forEach(card=>card.hidden=f!=="all"&&!card.dataset.category.split(" ").includes(f));
+}));
+const palette=document.getElementById("palette");
+const input=document.getElementById("paletteInput");
+function openPalette(){palette.classList.add("open");input.value="";input.focus()}
+function closePalette(){palette.classList.remove("open")}
+document.getElementById("openPalette").addEventListener("click",openPalette);
+document.addEventListener("keydown",e=>{
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openPalette()}
+  if(e.key==="Escape")closePalette();
+});
+palette.addEventListener("click",e=>{if(e.target===palette)closePalette()});
+document.querySelectorAll("[data-go]").forEach(button=>button.addEventListener("click",()=>{
+  const target=button.dataset.go;
+  closePalette();
+  if(target.startsWith("#"))document.querySelector(target).scrollIntoView({behavior:"smooth"});
+  else window.open(target,"_blank","noopener");
+}));
+input.addEventListener("input",()=>{
+  const q=input.value.toLowerCase();
+  document.querySelectorAll("#paletteList button").forEach(b=>b.hidden=!b.textContent.toLowerCase().includes(q));
+});
 </script>
 </body>
 </html>
